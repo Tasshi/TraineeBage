@@ -5,7 +5,7 @@ export default function Counter({ title = "Counter" }) {
 
   const getCountColor = () => {
     if (count > 10) return 'text-red-600 animate-pulse';
-    if (count > 5) return 'text-orange-1000 animate-pulse';
+    if (count > 5) return 'text-orange-400';
     if (count > 0) return 'text-yellow-500';
     return 'text-indigo-600'; // Default color at 0
   };

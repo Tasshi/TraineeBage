@@ -2,6 +2,8 @@ import './App.css'
 import {TraineeBadge} from './trainee-badge'
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Counter from './counter';
+import AttendanceBadge from './Attendance-List';
+import "./index.css";
 
 
 const traineeBadges = [
@@ -47,6 +49,18 @@ function Count() {
   );
 }
 
+function EmployeeList() {
+  const employees = ["Tashi Phuntsho1", "Karma Update", "Pema Wangchuk"];
+
+  return (
+    <div className="flex flex-wrap gap-4 p-10">
+      {employees.map((employeeName) => (
+        <AttendanceBadge key={employeeName} name={employeeName} />
+      ))}
+    </div>
+  );
+}
+
 function App() {
 
   return (    
@@ -55,12 +69,14 @@ function App() {
       <nav className="p-4 bg-white shadow-sm flex gap-6 justify-center">
         <Link to="/" className="hover:text-blue-600 font-bold">Counter </Link>
         <Link to="/traineeList" className="hover:text-blue-600 font-bold">Trainee List</Link>
+        <Link to="/employeeList" className="hover:text-blue-600 font-bold">Employee List</Link>
       </nav>
 
       <Routes>
         {/* Correct v6 syntax: use element={<Component />} */}
         <Route path="/" element={<Count/>} />
         <Route path="/traineeList" element={<TraineeList />} />
+        <Route path="/employeeList" element={<EmployeeList />} />
       </Routes>
     </BrowserRouter>
   )
